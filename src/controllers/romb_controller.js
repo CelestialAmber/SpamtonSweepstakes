@@ -2,6 +2,21 @@ import { Howl } from 'howler';
 import { Controller } from '@hotwired/stimulus';
 
 export default class RombController extends Controller {
+  static targets = [
+    'container',
+    'door',
+    'square',
+    'escaped'
+  ];
+
+  static values = {
+    clicked: { type: Boolean, default: false },
+    escaped: { type: Boolean, default: false },
+    started: { type: Boolean, default: false },
+    angle: { type: Number, default: 0 },
+    locale: { type: String, default: 'en' }
+  };
+
   connect() {
     this.locale = {
       en: {
@@ -83,18 +98,3 @@ export default class RombController extends Controller {
     this.ma.play();
   }
 }
-
-__publicField(RombController, 'targets', [
-  'container',
-  'door',
-  'square',
-  'escaped'
-]);
-
-__publicField(RombController, 'values', {
-    clicked: { type: Boolean, default: false },
-    escaped: { type: Boolean, default: false },
-    started: { type: Boolean, default: false },
-    angle: { type: Number, default: 0 },
-    locale: { type: String, default: 'en' }
-});

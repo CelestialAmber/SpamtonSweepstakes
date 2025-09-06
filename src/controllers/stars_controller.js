@@ -1,6 +1,11 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class StarsController extends Controller {
+  static targets = [
+    'star',
+    'container'
+  ];
+
   connect() {
     this.appendStar(
       Math.floor(Math.random() * 10) + 450,
@@ -83,8 +88,3 @@ export default class StarsController extends Controller {
     this.containerTarget.append(l);
   }
 }
-
-__publicField(StarsController, 'targets', [
-  'star',
-  'container'
-]);

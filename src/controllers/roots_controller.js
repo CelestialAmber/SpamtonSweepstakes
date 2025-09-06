@@ -2,6 +2,10 @@ import { Howl } from 'howler';
 import { Controller } from '@hotwired/stimulus';
 
 export default class RootsController extends Controller {
+  static values = {
+    clicks: { type: Number, default: 0 }
+  };
+
   connect() {
     this.sound = new Howl({
       src: [
@@ -22,7 +26,3 @@ export default class RootsController extends Controller {
     }
   }
 }
-
-__publicField(RootsController, 'values', {
-  clicks: { type: Number, default: 0 }
-});

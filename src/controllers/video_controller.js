@@ -1,6 +1,12 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class VideoController extends Controller {
+  static targets = [
+    'container',
+    'playButton',
+    'video'
+  ];
+
   connect() {
     for (let o of this.element.querySelectorAll('video')){
       o.setAttribute('data-video-target', 'video');
@@ -32,9 +38,3 @@ export default class VideoController extends Controller {
     }
   }
 }
-
-__publicField(VideoController, 'targets', [
-  'container',
-  'playButton',
-  'video'
-]);

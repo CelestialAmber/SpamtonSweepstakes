@@ -12,18 +12,18 @@ import { Application } from '@hotwired/stimulus';
 import Dialog from '@stimulus-components/dialog';
 import { Fancybox } from '@fancyapps/ui';
 
-import { AudioController } from './controllers/audio_controller';
-import { Chapter3Controller } from './controllers/chapter3_controller';
-import { CountdownController } from './controllers/countdown_controller';
-import { ParticlesController } from './controllers/particles_controller';
-import { RareCatsController } from './controllers/rarecats_controller';
-import { RombController } from './controllers/romb_controller';
-import { RootsController } from './controllers/roots_controller';
-import { ScrollController } from './controllers/scroll_controller';
-import { StarsController } from './controllers/stars_controller';
-import { ThankYouController } from './controllers/thankyou_controller';
-import { TherapyController } from './controllers/therapy_controller';
-import { VideoController } from './controllers/video_controller';
+import AudioController from './controllers/audio_controller';
+import Chapter3Controller from './controllers/chapter3_controller';
+import CountdownController from './controllers/countdown_controller';
+import ParticlesController from './controllers/particles_controller';
+import RareCatsController from './controllers/rarecats_controller';
+import RombController from './controllers/romb_controller';
+import RootsController from './controllers/roots_controller';
+import ScrollController from './controllers/scroll_controller';
+import StarsController from './controllers/stars_controller';
+import ThankYouController from './controllers/thankyou_controller';
+import TherapyController from './controllers/therapy_controller';
+import VideoController from './controllers/video_controller';
 
 const controllers = {
   './controllers/audio_controller.js': AudioController,

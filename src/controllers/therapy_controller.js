@@ -1,6 +1,20 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class TherapyController extends Controller {
+  static targets = [
+    'container',
+    'coverbox',
+    'cover',
+    'dot',
+    'tree'
+  ];
+
+  static values = {
+    drawing: { type: Boolean, default: false },
+    dotsDrawn: { type: Number, default: 0 },
+    revealing: { type: Boolean, default: false }
+  };
+
   startDrawing(o) {
     this.drawingValue = true;
   }
@@ -70,17 +84,3 @@ export default class TherapyController extends Controller {
     }
   }
 }
-
-__publicField(TherapyController, 'targets', [
-  'container',
-  'coverbox',
-  'cover',
-  'dot',
-  'tree'
-]);
-
-__publicField(TherapyController, 'values', {
-    drawing: { type: Boolean, default: false },
-    dotsDrawn: { type: Number, default: 0 },
-    revealing: { type: Boolean, default: false }
-});

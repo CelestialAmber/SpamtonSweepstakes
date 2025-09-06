@@ -1,6 +1,21 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class CountdownController extends Controller {
+  static targets = [
+    'date',
+    'countdown',
+    'info'
+  ];
+
+  static values = {
+    time: { type: String, default: '' },
+    cooldown: { type: Number, default: 0 },
+    started: { type: Boolean, default: false },
+    locale: { type: String, default: 'en_US' },
+    source: { type: String, default: 'https://files.deltarune.com/is-it-ready-yet.txt' },
+    timeSinceRefresh: { type: Number, default: 0 }
+  };
+
   connect() {
     this.localeValue = document.querySelector('meta[property="og:locale"]').content;
     this.getLatestCountdown();
@@ -109,18 +124,3 @@ export default class CountdownController extends Controller {
     )
   }
 }
-
-__publicField(CountdownController, 'targets', [
-  'date',
-  'countdown',
-  'info'
-]);
-
-__publicField(CountdownController, 'values', {
-    time: { type: String, default: '' },
-    cooldown: { type: Number, default: 0 },
-    started: { type: Boolean, default: false },
-    locale: { type: String, default: 'en_US' },
-    source: { type: String, default: 'https://files.deltarune.com/is-it-ready-yet.txt' },
-    timeSinceRefresh: { type: Number, default: 0 }
-});

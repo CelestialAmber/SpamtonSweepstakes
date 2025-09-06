@@ -1,6 +1,17 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class ThankYouController extends Controller {
+  static targets = [
+    'button',
+    'form',
+    'feedback',
+    'field'
+  ];
+
+  static values = {
+    locale: { type: String, default: 'en' }
+  };
+
   connect() {
     this.locale = {
       en: {
@@ -39,14 +50,3 @@ export default class ThankYouController extends Controller {
     this.feedbackTarget.innerHTML = this.locale[this.localeValue].thank_you;
   }
 }
-
-__publicField(ThankYouController, 'targets', [
-  'button',
-  'form',
-  'feedback',
-  'field'
-]);
-
-__publicField(ThankYouController, 'values', {
-  locale: { type: String, default: 'en' }
-});

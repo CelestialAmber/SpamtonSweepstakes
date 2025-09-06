@@ -1,6 +1,17 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class AudioController extends Controller {
+  static targets = [
+    'audioPlayer'
+  ];
+
+  static values = {
+    playing: { type: String },
+    bpm: { type: Number, default: 90 },
+    volume: { type: Number, default: 0.5 },
+    muted: { type: Boolean, default: false }
+  };
+
   connect() {
     this.nextNote = false;
   }
@@ -115,15 +126,4 @@ export default class AudioController extends Controller {
     this.spawnNote();
   }
 }
-
-__publicField(AudioController, 'targets', [
-  'audioPlayer'
-]);
-
-__publicField(AudioController, 'values', {
-    playing: { type: String },
-    bpm: { type: Number, default: 90 },
-    volume: { type: Number, default: 0.5 },
-    muted: { type: Boolean, default: false }
-});
 

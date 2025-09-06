@@ -2,6 +2,11 @@ import * as basicScroll from 'basicScroll'
 import { Controller } from '@hotwired/stimulus';
 
 export default class ScrollController extends Controller {
+  static targets = [
+    'parallax',
+    'parafade'
+  ];
+
   parallaxTargetConnected(o) {
     o.classList.add('parallax');
 
@@ -71,8 +76,3 @@ export default class ScrollController extends Controller {
     }
   }
 }
-
-__publicField(ScrollController, 'targets', [
-  'parallax',
-  'parafade'
-]);

@@ -2,6 +2,14 @@ import { Controller } from '@hotwired/stimulus';
 import { useHotkeys } from 'stimulus-use/hotkeys';
 
 export default class Chapter3Controller extends Controller {
+  static targets = [
+    'but'
+  ];
+
+  static values = {
+    moving: { type: Boolean, default: false }
+  };
+
   connect() {
     this.butTarget.style.left = '120%';
     useHotkeys(
@@ -36,11 +44,3 @@ export default class Chapter3Controller extends Controller {
     window.requestAnimationFrame(this.moveLeft.bind(this));
   }
 }
-
-__publicField(Chapter3Controller, 'targets', [
-  'but'
-]);
-
-__publicField(Chapter3Controller, 'values', {
-  moving: { type: Boolean, default: false }
-});

@@ -2,6 +2,23 @@ import { Howl } from 'howler';
 import { Controller } from '@hotwired/stimulus';
 
 export default class RareCatsController extends Controller {
+  static targets = [
+    'cat',
+    'container',
+    'window'
+  ];
+
+  static values = {
+    initialized: { type: Boolean, default: false},
+    points: { type: Number, default: 0},
+    pulls: { type: Number, default: 0},
+    horizontal: { type: Number, default: 1},
+    vertical: { type: Number, default: 1},
+    x: { type: Number, default: 0},
+    y: { type: Number, default: 0},
+    caught: { type: Boolean, default: false}
+  };
+
   connect() {
     this.sprinkle = new Howl({
       src: [
@@ -244,21 +261,4 @@ export default class RareCatsController extends Controller {
     this.summonCat();
     window.location.href = '/sweepstakes/';
   }
-};
-
-__publicField(RareCatsController, 'targets', [
-  'cat',
-  'container',
-  'window'
-]);
-
-__publicField(RareCatsController, 'values', {
-initialized: { type: Boolean, default: false},
-points: { type: Number, default: 0},
-pulls: { type: Number, default: 0},
-horizontal: { type: Number, default: 1},
-vertical: { type: Number, default: 1},
-x: { type: Number, default: 0},
-y: { type: Number, default: 0},
-caught: { type: Boolean, default: false}
-});
+}

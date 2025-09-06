@@ -1,6 +1,12 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class ParticlesController extends Controller {
+  static targets = [
+    'particle',
+    'container',
+    'mobile'
+  ];
+
   connect() {
     if (this.hasContainerTarget) {
       var o = Math.floor(Math.random() * 4) + 6;
@@ -86,9 +92,3 @@ export default class ParticlesController extends Controller {
     e.append(h);
   }
 }
-
-__publicField(ParticlesController, 'targets', [
-  'particle',
-  'container',
-  'mobile'
-]); 
